@@ -1,16 +1,36 @@
 # api for front end dev
 
-fast get api data , do need wait for endpoint data
+for faster get api data , do not have to wait for endpoint data
 
-## things need
+
+## local-server
+
+### things need
 
 1. node & express
 2. mongodb and its mongoose[install mongodb if necessary](https://docs.mongodb.com/manual/installation/#tutorial-installation)
 
-## start
+### start server
 
-```nodemon index```
+```shell
+nodemon index
+```
 
-# another way
+then start up postman to test the api
 
-json-server + faker.js/mock.js ... thats easy for noServer
+## json-server
+
+### things need
+
+1. json-server
+2. faker.js
+
+### start server
+
+```shell
+json-server api/data.js
+or
+json-server api/data.json
+```
+
+json-server 对于指定的 json 文件可以做数据持久化, 而js文件则不行, json-server 最大的缺点是没有安全性验证, 也没有对非 RESTFul 接口的内部支持, 如果需要做到就要自定义中间件或自行封装

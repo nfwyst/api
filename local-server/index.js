@@ -11,7 +11,7 @@ app.use(express.static('public'))
    .use(bodyParser.json()) // parse application/json
    .use('/api', apiMiddleware)
    .use((err, req, res, next) => {
-      console.log(err)
+     res.status(422).send({error: err.message})
    })
 
 app.listen(port, () => {

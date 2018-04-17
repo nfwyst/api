@@ -8,10 +8,11 @@ const port = process.env.PORT || 3000
 mongoose.connect('mongodb://localhost:27017/api')
 
 app.use(express.static('public'))
-  .use('/api', apiMiddleware)
-  .use((err, req, res, next) => {
-    console.log(err)
-  })
+   .use(bodyParser.json()) // parse application/json
+   .use('/api', apiMiddleware)
+   .use((err, req, res, next) => {
+      console.log(err)
+   })
 
 app.listen(port, () => {
   console.log(`Server is runing on port ${port}`)
